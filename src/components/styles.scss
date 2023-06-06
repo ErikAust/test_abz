@@ -1,0 +1,224 @@
+@import "../assets/styles";
+
+.button {
+  height: 34px;
+  padding: 4px 0;
+  background-color: $primary-color;
+  font-size: 16px;
+  line-height: 26px;
+  text-align: center;
+  border: none;
+  border-radius: 80px;
+  cursor: pointer;
+
+  &--width {
+    width: 100px;
+  }
+
+  &:hover {
+    background-color: $hover-color-btn;
+  }
+
+  &--disabled {
+    background: $disabled-color-btn;
+    color: rgba(255, 255, 255, 0.87);
+  }
+}
+
+.wrapper {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: $white-color;
+
+  .logo {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 360px;
+    max-width: 1170px;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 16px;
+
+    @include for-tablet {
+      padding: 0 32px;
+    }
+
+    @include for-desktop {
+      padding: 0 60px;
+    }
+
+    @include for-desktop-ultra {
+      padding: 0;
+    }
+
+    &--buttons {
+      width: 210px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+}
+
+.form--field {
+  display: flex;
+  flex-direction: column;
+  margin: 23px 0 32px;
+
+  .form--field--input {
+    width: 100%;
+    height: 54px;
+    box-sizing: border-box;
+    padding: 14px 16px;
+    background: $bg-color;
+    border: 1px solid $border_color;
+    border-radius: 4px;
+    font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+
+    &--error {
+      border: 2px solid $error-color;
+    }
+  }
+
+  .form--field--photo {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 54px;
+    box-sizing: border-box;
+    background: $bg-color;
+
+    .form--field--photo--button {
+      width: 83px;
+      margin: 0;
+      opacity: 0;
+      z-index: 1;
+      cursor: pointer;
+    }
+
+    .form--field--photo--button--title {
+      position: absolute;
+      box-sizing: border-box;
+      width: 83px;
+      height: inherit;
+      border: 1px solid rgba(0, 0, 0, 0.87);
+      border-radius: 4px 0 0 4px;
+      margin: 0;
+      padding: 14px 15px;
+      z-index: 0;
+    }
+
+    .form--field--photo--filename {
+      box-sizing: border-box;
+      width: 100%;
+      border: 1px solid $border_color;
+      border-left: none;
+      border-radius: 0 4px 4px 0;
+      color: $grey-color;
+      padding: 14px 16px 14px 32px;
+      text-align: start;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin: 0;
+    }
+
+    &--error {
+      border: 2px solid $error-color;
+    }
+  }
+}
+
+.form--field--span {
+  width: 100%;
+  height: 14px;
+  margin: 4px 0 0 16px;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: start;
+
+  &--error {
+    color: $error-color;
+  }
+
+  &--helpertext {
+    color: $grey-color;
+  }
+}
+
+.form--field--radio {
+  box-sizing: border-box;
+  width: fit-content;
+  height: 26px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 7px;
+
+  &--input {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    position: absolute;
+    opacity: 0;
+    border: 1px solid $border_color;
+
+    + .form--field--radio--label {
+      &:before {
+        content: "";
+        position: relative;
+        top: 3px;
+        box-sizing: border-box;
+        width: 20px;
+        height: 20px;
+        background: none;
+        border-radius: 100%;
+        border: 1px solid $border_color;
+        display: inline-block;
+        transition: all 250ms ease;
+        margin-right: 12px;
+        cursor: pointer;
+      }
+    }
+
+    &:checked {
+      + .form--field--radio--label {
+        &:before {
+          border: 1px solid $secondary-color;
+          background-color: $secondary-color;
+          box-shadow: inset 0 0 0 4px $white-color;
+        }
+      }
+    }
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.preloader {
+  width: 100%;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .preloader--image {
+    animation: rotate 2s linear infinite;
+  }
+}

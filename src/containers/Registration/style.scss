@@ -1,0 +1,74 @@
+@import "../../assets/styles";
+
+.registration {
+  box-sizing: border-box;
+  padding: 0 60px 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  &--header {
+    box-sizing: border-box;
+    width: 328px;
+    margin: 0;
+
+    @include for-tablet {
+      width: 100%;
+    }
+
+    @include for-desktop {
+      width: 100%;
+    }
+
+    @include for-desktop-ultra {
+      width: 100%;
+    }
+  }
+
+  &--form {
+    box-sizing: border-box;
+    width: 328px;
+    margin: 27px 0 18px;
+
+    &--position {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin: -7px 0 40px;
+
+      &--title {
+        margin: 0 0 10px;
+      }
+    }
+
+    @include for-tablet {
+      width: 380px;
+    }
+
+    @include for-desktop {
+      width: 380px;
+    }
+
+    @include for-desktop-ultra {
+      width: 380px;
+    }
+  }
+
+  &--success {
+    margin-top: 50px;
+    &--title {
+      margin-bottom: 50px;
+    }
+  }
+
+  .registration--span--error {
+    width: 100%;
+    margin: 20px;
+    font-size: 16px;
+    line-height: 14px;
+    text-align: center;
+    color: $error-color;
+  }
+}

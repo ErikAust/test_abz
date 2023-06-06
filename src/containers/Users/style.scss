@@ -1,0 +1,172 @@
+@import "../../assets/styles";
+
+.users {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 140px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  &--header {
+    width: 238px;
+    margin: 0;
+
+    @include for-tablet {
+      width: 100%;
+    }
+
+    @include for-desktop {
+      width: 100%;
+    }
+
+    @include for-desktop-ultra {
+      width: 100%;
+    }
+  }
+
+  &--cards {
+    box-sizing: border-box;
+    width: calc(100% - 20px);
+    padding: 0;
+    margin: 40px 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    @include for-tablet {
+      width: calc(100% + 16px);
+      margin: 42px 8px;
+      padding: 0 32px;
+    }
+
+    @include for-desktop {
+      width: calc(100% + 29px);
+      margin: 35.5px 14.5px;
+      padding: 0 60px;
+    }
+
+    @include for-desktop-ultra {
+      width: calc(100% + 29px);
+      padding: 0;
+      margin: 35.5px 0;
+    }
+
+    .usercard {
+      background: $white-color;
+      border-radius: 10px;
+      min-width: 282px;
+      height: 254px;
+      box-sizing: border-box;
+      padding: 20px;
+      text-align: center;
+      width: 328px;
+      margin: 10px;
+
+      &--photo {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+      }
+
+      &--name {
+        position: relative;
+        margin: 13px 0 20px;
+        white-space: nowrap;
+
+        &--title {
+          margin: 0;
+          width: inherit;
+          cursor: pointer;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        &--tooltip {
+          visibility: hidden;
+          position: absolute;
+          top: 40px;
+          left: 40%;
+          color: $white-color;
+          overflow: visible;
+          background: rgba(0, 0, 0, 0.87);
+          border-radius: 4px;
+          padding: 0 16px;
+        }
+
+        &:hover {
+          .usercard--name--tooltip {
+            visibility: visible;
+          }
+        }
+      }
+
+      &--position {
+        margin: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      &--email {
+        position: relative;
+        margin: 0;
+        white-space: nowrap;
+
+        &--title {
+          margin: 0;
+          width: inherit;
+          cursor: pointer;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        &--tooltip {
+          visibility: hidden;
+          position: absolute;
+          top: 40px;
+          left: 40%;
+          color: $white-color;
+          overflow: visible;
+          background: rgba(0, 0, 0, 0.87);
+          border-radius: 4px;
+          padding: 0 16px;
+        }
+
+        &:hover {
+          .usercard--email--tooltip {
+            visibility: visible;
+          }
+        }
+      }
+
+      &--phonenumber {
+        margin: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      @include for-tablet {
+        width: 344px;
+        margin: 8px;
+      }
+
+      @include for-desktop {
+        width: 30%;
+        margin: 14.5px;
+      }
+
+      @include for-desktop-ultra {
+        width: 370px;
+        margin: 14.5px;
+      }
+    }
+  }
+
+  &--button {
+    width: 120px;
+  }
+}
