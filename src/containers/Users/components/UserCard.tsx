@@ -1,5 +1,4 @@
 import React from "react";
-import DefaultPhoto from "../../../assets/images/photo-cover.svg";
 import { IUser } from "../../../interfaces";
 
 import "../style.scss";
@@ -15,7 +14,7 @@ const UserCard = ({
   return (
     <div className="usercard">
       <img
-        src={photo ? photo : DefaultPhoto}
+        src={photo ? photo : "./assets/images/photo-cover.svg"}
         alt="user-photo"
         className="usercard--photo"
       />

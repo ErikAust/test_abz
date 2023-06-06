@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { useAppDispatch, useTypedSelector } from "../../redux/store";
+import { useSelector } from "react-redux";
+import { useAppDispatch } from "../../redux/store";
 import { thunkGetPositions, thunkUserRegistration } from "../../redux/thunk";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import RadioButtom from "../../components/RadioButton";
 import PhotoInput from "../../components/PhotoInput";
 import Spinner from "../../components/Spinner";
-import Success from "../../assets/images/success-image.svg";
-import { IPosition, IUserRegistration } from "../../interfaces";
+import { IInitialState, IPosition, IUserRegistration } from "../../interfaces";
 import { useValidator } from "../../hooks/useValidator";
 import { initialUserState } from "../../utils/helpers";
 
@@ -15,8 +15,8 @@ import "./style.scss";
 
 const Registration = () => {
   const dispatch = useAppDispatch();
-  const { positions, error, successRegistration, isLoading } = useTypedSelector(
-    (state) => state
+  const { positions, error, successRegistration, isLoading } = useSelector(
+    (state: IInitialState) => state
   );
   const {
     validators,
@@ -171,7 +171,7 @@ const Registration = () => {
           <h1 className="registration--success--title">
             User successfully registered
           </h1>
-          <img src={Success} alt="success" />
+          <img src="./assets/images/success-image.svg" alt="success" />
         </div>
       )}
     </div>

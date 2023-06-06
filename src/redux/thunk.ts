@@ -49,7 +49,7 @@ export const thunkGetPositions = () => {
   };
 };
 
-export const thunkGetUsers = (link?: string) => {
+export const thunkGetUsers = (link?: string | null) => {
   return async (dispatch: Dispatch) => {
     dispatch(GetUsers());
 
