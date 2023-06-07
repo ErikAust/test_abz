@@ -88,6 +88,19 @@ const config: Configuration = {
         exclude: /node_modules/,
       },
       {
+        test: /\.(png|jpg|svg)$/,
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              name: "[name].[ext]",
+              fallback: "file-loader",
+              outputPath: "assets/images",
+            },
+          },
+        ],
+      },
+      {
         test: /\.svg$/,
         type: "asset",
         use: [
@@ -99,20 +112,6 @@ const config: Configuration = {
             },
           },
           "svgo-loader",
-        ],
-      },
-      {
-        test: /\.(jpeg|jpg)$/,
-        type: "asset",
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              name: "[name].[ext]",
-              outputPath: "assets/images",
-            },
-          },
-          "image-webpack-loader",
         ],
       },
       {
