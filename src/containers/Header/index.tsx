@@ -5,7 +5,7 @@ import "./style.scss";
 
 const Header = () => {
   return (
-    <div className="banner">
+    <header className="banner" role="banner">
       <h1 className="banner--title">Test assignment for front-end developer</h1>
       <p className="banner--text">
         What defines a good front-end developer is one that has skilled
@@ -15,7 +15,7 @@ const Header = () => {
         Development keeps evolving.
       </p>
       <Button title="Sign up" />
-    </div>
+    </header>
   );
 };
 

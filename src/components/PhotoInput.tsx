@@ -12,7 +12,7 @@ const PhotoInput = ({
 }: IPhotoProps) => {
   return (
     <div className="form--field">
-      <div className="form--field--photo">
+      <div className="form--field--photo" role="button">
         <input
           placeholder="hello"
           name="photo"
@@ -23,6 +23,7 @@ const PhotoInput = ({
           accept="image/jpeg"
           onFocus={onFocus}
           onChange={onChange}
+          aria-labelledby="photo"
         />
         <p className="form--field--photo--button--title">Upload</p>
         <p className="form--field--photo--filename">

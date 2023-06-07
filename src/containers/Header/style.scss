@@ -13,16 +13,6 @@
   justify-content: flex-start;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("../../assets/images/pexels-alexandr-podvalny-1227513.jpeg") no-repeat;
-  background: -webkit-linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0.5),
-      rgba(0, 0, 0, 0.5)
-    ),
-    no-repeat url("../../assets/images//pexels-alexandr-podvalny-1227513.jpeg");
-  background: -moz-linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    no-repeat url("../../assets/images//pexels-alexandr-podvalny-1227513.jpeg");
-  background: -o-linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    no-repeat url("../../assets/images/pexels-alexandr-podvalny-1227513.jpeg");
   background-position: right 48.8% top 99%;
   background-size: 341.5% 164%;
   -webkit-background-size: 341.5% 164%;
@@ -64,6 +54,12 @@
     @include for-desktop-ultra {
       width: 380px;
     }
+  }
+
+  @include for-mobile {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("/public/assets/images/pexels-alexandr-podvalny-1227513-mobile.jpeg")
+        no-repeat;
   }
 
   @include for-tablet {

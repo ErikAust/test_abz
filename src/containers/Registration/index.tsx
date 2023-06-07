@@ -35,7 +35,9 @@ const Registration = () => {
   ]);
 
   useEffect(() => {
-    dispatch(thunkGetPositions());
+    if (!positions.length) {
+      dispatch(thunkGetPositions());
+    }
   }, []);
 
   const changePositionHandler = (event: React.MouseEvent<HTMLInputElement>) => {
@@ -46,18 +48,6 @@ const Registration = () => {
     );
 
     setUser((prevState) => ({ ...prevState, position_id: +target.id }));
-  };
-
-  const renderPositionsOptions = () => {
-    return positions.map((position: IPosition) => (
-      <RadioButtom
-        id={position.id}
-        key={position.id}
-        name={position.name}
-        onClick={changePositionHandler}
-        checked={checkedPosition[position.id - 1]}
-      />
-    ));
   };
 
   const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -103,13 +93,13 @@ const Registration = () => {
   };
 
   return (
-    <div className="registration">
+    <section className="registration">
       <h1 className="registration--header">Working with POST request</h1>
       {isLoading ? (
         <Spinner />
       ) : (
         <>
-          <form className="registration--form">
+          <form className="registration--form" role="form">
             <Input
               type="text"
               value={user.name}
@@ -148,7 +138,15 @@ const Registration = () => {
               <p className="registration--form--position--title">
                 Select your position
               </p>
-              {renderPositionsOptions()}
+              {positions.map((position: IPosition) => (
+                <RadioButtom
+                  id={position.id}
+                  key={position.id}
+                  name={position.name}
+                  onClick={changePositionHandler}
+                  checked={checkedPosition[position.id - 1]}
+                />
+              ))}
             </div>
             <PhotoInput
               filename={filename}
@@ -171,10 +169,15 @@ const Registration = () => {
           <h1 className="registration--success--title">
             User successfully registered
           </h1>
-          <img src="./assets/images/success-image.svg" alt="success" />
+          <img
+            src="./assets/images/success-image.svg"
+            alt="success"
+            width={328}
+            height={290}
+          />
         </div>
       )}
-    </div>
+    </section>
   );
 };
 

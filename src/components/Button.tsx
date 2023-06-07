@@ -5,6 +5,8 @@ import "./styles.scss";
 
 const Button = ({ title, className, onClick, disabled }: IButtonProps) => (
   <button
+    role="button"
+    aria-labelledby={title}
     onClick={onClick}
     className={`button ${className ? className : "button--width"} ${
       disabled && "button--disabled"
